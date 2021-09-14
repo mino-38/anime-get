@@ -1,6 +1,12 @@
 # anime-get
 アニメ情報を取得することができます
 
+# インストール
+
+```bash
+$ pip install git+https://github.com/mino-38/anime-get
+```
+
 # オプション
 -q [検索ワード]
 検索ワードに該当するものだけを出力します
