@@ -92,7 +92,7 @@ class Anime_Get:
                         continue
                     else:
                         print('{}:  {}'.format(key, item))
-            print("\n{0}年{1}のアニメ数の合計は、 '{2}' です".format(self.year, self.season, len(response)))
+            print("\n{0}年{1}のアニメ数の合計は、 '{2}' です".format(self.year, self.season, len(self.result)))
         else:
             search_word = self.arg[self.arg.index('-q')+1].split('&')
             result = []
