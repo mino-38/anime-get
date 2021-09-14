@@ -9,7 +9,7 @@ setup(
     install_requires=["requests"],
     entry_points={
         "console_scripts": [
-            "anime-get=anime_get:main"
+            "anime-get=main.anime_get:main"
         ]
     },
     url="https://github.com/mino-38/anime-get"

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
-import requests, sys, os, time
+import requests
+import sys
+import os
+import time
 import datetime as dt
 
 class AnimeGetError(Exception):
@@ -27,7 +30,7 @@ class Anime_Get:
                 raise AnimeGetError('Please enter an integer')
                 sys.exit()
         self.season = self.season_check(self.n)
-        return self.request()
+        self.result = self.request()
 
     def request(self, date=dt.datetime.now()) -> requests.models.Response.json:
         while True:
@@ -78,9 +81,9 @@ class Anime_Get:
             raise AnimeGetError('please give an integer from 1 to 12 as an argument')
         return (n, self.season_check(n))
 
-    def stdout(self, response) -> None:
+    def stdout(self) -> None:
         if not '-q' in self.arg:
-            for d in response:
+            for d in self.result:
                 for key, item in d.items():
                     if key == 'id':
                         print()
@@ -93,7 +96,7 @@ class Anime_Get:
         else:
             search_word = self.arg[self.arg.index('-q')+1].split('&')
             result = []
-            [_ for _ in [a for a in response for s in search_word if s in a['title'] or s in a['title_short1'] or s in a['title_short2'] or s in a['title_short3']] if not _ in result and result.append(_)]
+            [_ for _ in [a for a in self.result for s in search_word if s in a['title'] or s in a['title_short1'] or s in a['title_short2'] or s in a['title_short3']] if not _ in result and result.append(_)]
             for d in result:
                 for key, item in d.items():
                     if key == 'id':
@@ -106,9 +109,8 @@ class Anime_Get:
 
 def main() -> None:
     anime = Anime_Get()
-    res = anime.GetAnimeInformation()
-    anime.stdout(res)
-    time.sleep(3)
+    anime.GetAnimeInformation()
+    anime.stdout()
 
 if __name__ == '__main__':
     main()
