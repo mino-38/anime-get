@@ -15,7 +15,7 @@ class Anime_Get:
 
     def GetAnimeInformation(self) -> requests.models.Response.json:
         if '-h' in self.arg or '--help' in self.arg:
-            print('基本的な記述\nanime-get <オプション>\n\n<オプション一覧>\n-q\n作品名で検索することができます\n検索キーワードは略称でも大丈夫です\n複数の検索キーワードを使用する場合は、\'&\'で区切ってください\n使用例:  anime-get -q A&B&C\n(※空白を開けないでください。空白を開けると正しく動作しない場合があります)\n\n-Q\n指定された季節や年のアニメ一覧を表示します\n季節の指定は以下の通りです\n1 冬季\n2 春季\n3 夏季\n4 秋季\nまた、-qオプションとの併用もできます\n使用例:  anime-get -q A -Q 2020 1\n\n[データの見方]\ntitle  作品名\ntitle_en  作品名英語ver(無い場合もある)\ntitle_short1~3  作品名の略称、最大で3つ\npublic_url  公式サイトのURL\ntwitter_account  ツイッターアカウントid\ntwitter_hash_tag  ツイッターのハッシュタグ\nsex  男性向けなら0、女性向けなら1\nsequel  続編作品なら何期目なのかが入る。続編作品でなければ0が入る\nproduct_companies  アニメーションを制作した会社名\n\n(これらのデータは正確ではない場合があります\nまた、出力後に処理が少し停止するのはDos/DDos攻撃対策です\n予めご了承ください)')
+            print('基本的な記述\nanime-get <オプション>\n\n<オプション一覧>\n-q\n作品名で検索することができます\n検索キーワードは略称でも大丈夫です\n複数の検索キーワードを使用する場合は、\'&\'で区切ってください\n使用例:  anime-get -q A&B&C\n(※空白を開けないでください。空白を開けると正しく動作しない場合があります)\n\n-Q\n指定された季節や年のアニメ一覧を表示します\n季節の指定は以下の通りです\n1 冬季\n2 春季\n3 夏季\n4 秋季\nまた、-qオプションとの併用もできます\n使用例:  anime-get -q A -Q 2020 1\n\n[データの見方]\ntitle  作品名\ntitle_en  作品名英語ver(無い場合もある)\ntitle_short1~3  作品名の略称、最大で3つ\npublic_url  公式サイトのURL\ntwitter_account  ツイッターアカウントid\ntwitter_hash_tag  ツイッターのハッシュタグ\nsex  男性向けなら0、女性向けなら1\nsequel  続編作品なら何期目なのかが入る。続編作品でなければ0が入る\nproduct_companies  アニメーションを制作した会社名\n\n(これらのデータは正確ではない場合があります)')
             sys.exit()
         elif not '-Q' in self.arg:
             date = dt.datetime.now()
